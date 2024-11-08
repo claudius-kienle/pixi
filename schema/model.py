@@ -224,6 +224,11 @@ class PyPIPathRequirement(_PyPIRequirement):
     editable: Optional[bool] = Field(
         None, description="If `true` the package will be installed as editable"
     )
+    config_settings: dict[NonEmptyStr, NonEmptyStr] | None = Field(
+        None,
+        description="Settings to pass to the PEP 517 build backend, specified as KEY=VALUE pairs",
+        examples=[{"editable_mode": "compat"}],
+    )
     subdirectory: NonEmptyStr | None = Field(
         None, description="The subdirectory in the repo, a path from the root of the repo."
     )
